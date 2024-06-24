@@ -25,19 +25,19 @@ const Task = ({ task, toggleComplete, editTask, deleteTask }) => {
 						value={newDescription}
 						onChange={(e) => setNewDescription(e.target.value)}
 					/>
-					<button onClick={handleEdit}>
+					<button onClick={handleEdit} className="FaCheck ">
 						<FaCheck />
 					</button>
 				</>
 			) : (
 				<>
 					<span>{task.description}</span>
-					<button onClick={() => setIsEditing(true)}>
+					<button onClick={() => setIsEditing(true)} className="FaEdit">
 						<FaEdit />
 					</button>
 				</>
 			)}
-			<button onClick={() => deleteTask(task.ID)}>
+			<button onClick={() => deleteTask(task.ID)} className="FaTrash">
 				<FaTrash />
 			</button>
 		</div>

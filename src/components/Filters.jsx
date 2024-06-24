@@ -2,10 +2,16 @@ import PropTypes from "prop-types";
 
 const Filters = ({ setFilter }) => {
 	return (
-		<div>
-			<button onClick={() => setFilter("all")}>Todas</button>
-			<button onClick={() => setFilter("pending")}>Pendientes</button>
-			<button onClick={() => setFilter("completed")}>Completadas</button>
+		<div className="allFilters">
+			<button onClick={() => setFilter("all")} className="all">
+				Todas
+			</button>
+			<button onClick={() => setFilter("pending")} className="pending">
+				Pendientes
+			</button>
+			<button onClick={() => setFilter("completed")} className=" completed">
+				Completadas
+			</button>
 		</div>
 	);
 };

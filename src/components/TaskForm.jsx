@@ -17,13 +17,17 @@ const TaskForm = ({ addTask }) => {
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<input
-				{...register("description", { required: true, maxLength: 100 })}
+				id="nw-taks"
+				name="nw-taks"
+				{...register("description", { required: true, maxLength: 60 })}
 				placeholder="Nueva tarea"
 			/>
 			{errors.description && (
-				<span>La tarea es requerida y debe tener menos de 100 caracteres.</span>
+				<span>La tarea es requerida y debe tener menos de 60 caracteres.</span>
 			)}
-			<button type="submit">Agregar Tarea</button>
+			<button type="submit" className="add-taks">
+				Agregar Tarea
+			</button>
 		</form>
 	);
 };
