@@ -1,18 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Aladin&family=Barriecito&display=swap");
 
 * {
-	
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 #root {
-
 	height: 100%;
 }
 
 .contaier {
-
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -50,8 +47,6 @@ form {
 	color: #0a0a0a;
 	font-weight: 700;
 }
-
-
 
 .allFilters {
 	display: flex;
@@ -117,4 +112,3 @@ button {
 	margin: 0 5px;
 	border: none;
 }
-
