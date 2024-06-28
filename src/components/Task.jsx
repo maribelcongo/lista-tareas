@@ -25,7 +25,7 @@ const Task = ({ task, toggleComplete, editTask, deleteTask }) => {
 						value={newDescription}
 						onChange={(e) => setNewDescription(e.target.value)}
 					/>
-					<button onClick={handleEdit} className="FaCheck ">
+					<button onClick={handleEdit} className="FaCheck">
 						<FaCheck />
 					</button>
 				</>
