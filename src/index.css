@@ -16,7 +16,6 @@
 }
 body {
 	height: 100vh;
-	background-image: url("https://i.pinimg.com/originals/04/6c/43/046c43bfa1fef37cc6775bed8a61b449.jpg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -111,4 +110,22 @@ input {
 button {
 	margin: 0 5px;
 	border: none;
+}
+
+.btnCambio{
+background: #dddddd8c;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    margin: 8px;
+	border-radius:8px
+	
+}
+
+
+.LuPalette{
+background:none;
+font-size:2em;
+margin: 0.1875em;
 }
