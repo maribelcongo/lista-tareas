@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+
+import  { useState } from "react";
 import PropTypes from "prop-types";
 import { FaEdit, FaTrash, FaCheck, FaRegCalendarAlt } from "react-icons/fa";
 import Calendar from "react-calendar";
 import 'react-calendar/dist/Calendar.css';
+
 
 const Task = ({ task, toggleComplete, editTask, deleteTask }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -53,13 +55,19 @@ const Task = ({ task, toggleComplete, editTask, deleteTask }) => {
         <FaRegCalendarAlt />
       </button>
       {showCalendar && (
-        <div className="calendar-container">
-          <Calendar
-            onChange={handleDateChange}
-            value={selectedDate}
-          />
-        </div>
+        <CalendarPopup onChange={handleDateChange} selectedDate={selectedDate} />
       )}
+    </div>
+  );
+};
+
+const CalendarPopup = ({ onChange, selectedDate }) => {
+  return (
+    <div className="calendar-popup">
+      <Calendar
+        onChange={onChange}
+        value={selectedDate}
+      />
     </div>
   );
 };
