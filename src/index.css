@@ -9,13 +9,23 @@
 	height: 100%;
 }
 
-.contaier {
+.container {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+	.container {
+		justify-content: center;
+		align-content: center;
+	}
+}
+
+html {
+	height: 100%;
 }
 body {
-
+	height: 100%;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -86,6 +96,11 @@ input {
 	background: rgba(255, 255, 255, 0.2);
 	border-radius: 8px;
 }
+@media screen and (max-width: 600px) {
+	.task {
+		width: 80%;
+	}
+}
 
 .task .buttons {
 	display: flex;
@@ -112,31 +127,30 @@ button {
 	border: none;
 }
 
-.btnCambio{
-background: #dddddd8c;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    margin: 8px;
-	border-radius:8px
-	
+.btnCambio {
+	background: #dddddd8c;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	margin: 8px;
+	border-radius: 8px;
 }
 
-
-.LuPalette{
-background:none;
-font-size:2em;
-margin: 0.1875em;
+.LuPalette {
+	background: none;
+	font-size: 2em;
+	margin: 0.1875em;
 }
 
-
- .calendar-popup {
-  position: absolute;
-  top: 50px; 
-  left: 0;
-  z-index: 1000; 
-  background-color: #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+.calendar-popup {
+	position: absolute;
+	top: 50px;
+	left: 0;
+	z-index: 1000;
+	background-color: #fff;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+	padding: 10px;
+	width: 250px;
+	margin: 15px;
 }
