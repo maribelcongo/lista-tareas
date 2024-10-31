@@ -1,156 +1,242 @@
 @import url("https://fonts.googleapis.com/css2?family=Aladin&family=Barriecito&display=swap");
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 #root {
-	height: 100%;
+  height: 100%;
 }
 
 .container {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 600px) {
-	.container {
-		justify-content: center;
-		align-content: center;
-	}
+  .container {
+    justify-content: center;
+    align-content: center;
+  }
 }
 
 html {
-	height: 100%;
+  height: 100%;
 }
 body {
-	height: 100%;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	font-family: "Aladin", system-ui;
-	font-weight: 400;
-	font-style: normal;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Aladin", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 h1 {
-	color: #7209b7;
-	text-align: center;
-	font-family: "Barriecito", system-ui;
-	font-size: 3em;
+  color: #7209b7;
+  text-align: center;
+  font-family: "Barriecito", system-ui;
+  font-size: 3em;
 }
 form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 1em;
-	gap: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  gap: 1em;
 }
+
 .add-taks {
-	padding: 10px 20px;
-	background-color: #9617e92b;
-	border: none;
-	border-radius: 10px;
-	margin-top: 15px;
-	cursor: pointer;
-	color: #0a0a0a;
-	font-weight: 700;
+  padding: 10px 20px;
+  background-color: #9617e92b;
+  border: none;
+  border-radius: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+  color: #0a0a0a;
+  font-weight: 700;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.add-taks:hover {
+  background-color: #7d12c1;
+  color: #ffffff;
 }
 
 .allFilters {
-	display: flex;
-	justify-content: center;
-	padding: 1.3em;
+  display: flex;
+  justify-content: center;
+  padding: 1.3em;
 }
 
 .allFilters button {
-	padding: 10px 20px;
-	background-color: #5a0a8fab;
-	border: none;
-	border-radius: 10px;
-	margin-top: 15px;
-	cursor: pointer;
-	color: #0a0a0a;
-	font-weight: 700;
-}
+  padding: 10px 20px;
+  background-color: #5a0a8fab;
+  border: none;
+  border-radius: 10px;
 
+  cursor: pointer;
+  color: #0a0a0a;
+  font-weight: 700;
+  margin: 15px;
+}
+.allFilters button:hover {
+  background-color: #d883c3;
+  transform: scale(1.05);
+}
 input {
-	border-radius: 5px;
-	height: 2.5em;
-	padding: 0.5em;
-	border: none;
-	background: #ffd6ff;
+  border-radius: 5px;
+  height: 3.5em;
+  padding: 0.5em;
+  border: none;
+  background: #ffd6ff;
 }
-
+.FaRegCalendarAlt {
+  background: none;
+}
+.FaEdit {
+  background: none;
+  color: #007bff;
+}
 .FaTrash {
-	color: #e10f34;
+  color: #e10f34;
+  background: none;
 }
-
+.task_list_containere {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 35px;
+}
 .task {
-	display: flex;
-	align-items: center;
-	border: 1px solid #ddd;
-	padding: 10px;
-	width: 50%;
-	margin: auto;
-	background: rgba(255, 255, 255, 0.2);
-	border-radius: 8px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  width: 80%;
+  margin: auto;
 }
 @media screen and (max-width: 600px) {
-	.task {
-		width: 80%;
-	}
+  .task {
+    width: 80%;
+  }
 }
 
 .task .buttons {
-	display: flex;
-	gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .task span {
-	flex-grow: 1;
-	margin-left: 10px;
+  flex-grow: 1;
+  margin-left: 10px;
+  font-size: 1.5em;
 }
 
 .task button {
-	background: none;
-	border: none;
-	cursor: pointer;
+  border: none;
+  cursor: pointer;
 }
 
 .task.completed {
-	text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 button {
-	margin: 0 5px;
-	border: none;
+  margin: 0 5px;
+  border: none;
 }
 
 .btnCambio {
-	background: #dddddd8c;
-	width: 40px;
-	height: 40px;
-	display: flex;
-	justify-content: center;
-	margin: 8px;
-	border-radius: 8px;
+  background: #dddddd8c;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  margin: 8px;
+  border-radius: 8px;
 }
 
 .LuPalette {
-	background: none;
-	font-size: 2em;
-	margin: 0.1875em;
+  background: none;
+  font-size: 2em;
+  margin: 0.1875em;
 }
 
 .calendar-popup {
-	position: absolute;
-	top: 50px;
-	left: 0;
-	z-index: 1000;
-	background-color: #fff;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-	padding: 10px;
-	width: 250px;
-	margin: 15px;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 250px;
+  margin: 15px;
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #43304d;
+  color: white;
+
+  bottom: 0;
+  width: 100%;
+
+  .footer-text {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+  .icon-container {
+    display: flex;
+    gap: 15px;
+  }
+
+  .footer-icon {
+    color: white;
+    transition: color 0.3s;
+  }
+
+  .footer-icon:hover {
+    color: #c456e6;
+  }
+
+  @media (max-width: 600px) {
+    .footer-text {
+      font-size: 1rem;
+    }
+
+    .icon-container {
+      align-items: center;
+    }
+  }
+}
+.selected-day {
+  background-color: #300738;
+  color: white;
+  border-radius: 50%;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }

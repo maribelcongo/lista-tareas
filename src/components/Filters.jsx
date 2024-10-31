@@ -1,23 +1,36 @@
 import PropTypes from "prop-types";
+import Button from "@mui/material/Button"; 
 
 const Filters = ({ setFilter }) => {
-	return (
-		<div className="allFilters">
-			<button onClick={() => setFilter("all")} className="all">
-				Todas
-			</button>
-			<button onClick={() => setFilter("pending")} className="pending">
-				Pendientes
-			</button>
-			<button onClick={() => setFilter("completed")} className=" completed">
-				Completadas
-			</button>
-		</div>
-	);
+  return (
+    <div className="allFilters">
+      <Button
+        onClick={() => setFilter("all")}
+        variant="contained"
+        className="all"
+      >
+        Todas
+      </Button>
+      <Button
+        onClick={() => setFilter("pending")}
+        variant="outlined"
+        className="pending"
+      >
+        Pendientes
+      </Button>
+      <Button
+        onClick={() => setFilter("completed")}
+        variant="outlined"
+        className="completed"
+      >
+        Completadas
+      </Button>
+    </div>
+  );
 };
 
 Filters.propTypes = {
-	setFilter: PropTypes.func.isRequired,
+  setFilter: PropTypes.func.isRequired,
 };
 
 export default Filters;
