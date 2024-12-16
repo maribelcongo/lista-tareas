@@ -6,11 +6,19 @@ import "react-calendar/dist/Calendar.css";
 import "../index.css";
 import Modal from "./Modal";
 
-const Task = ({ task, toggleComplete, editTask, deleteTask }) => {
+const Task = ({
+  task,
+  toggleComplete,
+  editTask,
+  deleteTask,
+  updateTaskDate,
+}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newDescription, setNewDescription] = useState(task.description);
   const [showCalendar, setShowCalendar] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(
+    task.dueDate ? new Date(task.dueDate) : new Date() // Asegurarse de que dueDate sea un Date
+  );
   const [showModal, setShowModal] = useState(false);
 
   const handleEdit = () => {
@@ -23,6 +31,7 @@ const Task = ({ task, toggleComplete, editTask, deleteTask }) => {
     today.setHours(0, 0, 0, 0);
     if (date >= today) {
       setSelectedDate(date);
+      updateTaskDate(task.ID, date); // Llamar a la función updateTaskDate
       setShowCalendar(false);
     } else {
       alert("No se pueden seleccionar fechas pasadas.");
@@ -116,10 +125,12 @@ Task.propTypes = {
     ID: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired,
+    dueDate: PropTypes.instanceOf(Date),
   }).isRequired,
   toggleComplete: PropTypes.func.isRequired,
   editTask: PropTypes.func.isRequired,
   deleteTask: PropTypes.func.isRequired,
+  updateTaskDate: PropTypes.func.isRequired,
 };
 
 export default Task;

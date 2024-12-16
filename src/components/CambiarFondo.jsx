@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { LuPalette } from "react-icons/lu";
 
-// Importa tus imágenes desde la carpeta assets
 import fondo1 from "../assets/fondo oscuro.jpg";
 import fondo2 from "../assets/fondo_plumas.jpg";
 import fondo3 from "../assets/fondo_stich.jpg";

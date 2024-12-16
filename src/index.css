@@ -75,12 +75,19 @@ form {
   background-color: #5a0a8fab;
   border: none;
   border-radius: 10px;
-
   cursor: pointer;
   color: #0a0a0a;
   font-weight: 700;
   margin: 15px;
 }
+
+@media (max-width: 768px) {
+  .allFilters button {
+    font-size: 14px;
+    margin: 3px;
+  }
+}
+
 .allFilters button:hover {
   background-color: #d883c3;
   transform: scale(1.05);
