@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { FaEdit, FaTrash, FaCheck, FaRegCalendarAlt } from "react-icons/fa";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import "../index.css";
 import Modal from "./Modal";
 
 const Task = ({
@@ -16,10 +15,34 @@ const Task = ({
   const [isEditing, setIsEditing] = useState(false);
   const [newDescription, setNewDescription] = useState(task.description);
   const [showCalendar, setShowCalendar] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(
-    task.dueDate ? new Date(task.dueDate) : new Date() // Asegurarse de que dueDate sea un Date
-  );
+  const [selectedDate, setSelectedDate] = useState(task.dueDate || new Date());
   const [showModal, setShowModal] = useState(false);
+  const [dueClass, setDueClass] = useState("");
+
+  // Determinar clase según fecha
+  useEffect(() => {
+    if (!task.dueDate) {
+      setDueClass("due-later");
+      return;
+    }
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const taskDate = new Date(task.dueDate);
+    taskDate.setHours(0, 0, 0, 0);
+
+    const diffTime = taskDate - today;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    if (task.completed) {
+      setDueClass("completed");
+    } else if (diffDays <= 0) {
+      setDueClass("due-today");
+    } else if (diffDays <= 3) {
+      setDueClass("due-soon");
+    } else {
+      setDueClass("due-later");
+    }
+  }, [task.dueDate, task.completed]);
 
   const handleEdit = () => {
     editTask(task.ID, newDescription);
@@ -31,20 +54,15 @@ const Task = ({
     today.setHours(0, 0, 0, 0);
     if (date >= today) {
       setSelectedDate(date);
-      updateTaskDate(task.ID, date); // Llamar a la función updateTaskDate
+      updateTaskDate(task.ID, date);
       setShowCalendar(false);
     } else {
       alert("No se pueden seleccionar fechas pasadas.");
     }
   };
 
-  const handleDelete = () => {
-    deleteTask(task.ID);
-    setShowModal(false);
-  };
-
   return (
-    <div className={`task ${task.completed ? "completed" : ""}`}>
+    <div className={`task ${dueClass}`}>
       <input
         type="checkbox"
         checked={task.completed}
@@ -53,29 +71,34 @@ const Task = ({
       {isEditing ? (
         <>
           <input
-            type="text"
             value={newDescription}
             onChange={(e) => setNewDescription(e.target.value)}
           />
-          <button onClick={handleEdit} className="FaCheck">
+          <button onClick={handleEdit}>
             <FaCheck />
           </button>
         </>
       ) : (
         <>
           <span>{task.description}</span>
-          <button onClick={() => setIsEditing(true)} className="FaEdit">
+          <span className="due-date">
+            {task.dueDate
+              ? new Date(task.dueDate).toLocaleDateString("es-AR", {
+                  day: "2-digit",
+                  month: "short",
+                  year: "numeric",
+                })
+              : "Sin fecha"}
+          </span>
+          <button onClick={() => setIsEditing(true)}>
             <FaEdit />
           </button>
         </>
       )}
-      <button onClick={() => setShowModal(true)} className="FaTrash">
+      <button onClick={() => setShowModal(true)}>
         <FaTrash />
       </button>
-      <button
-        onClick={() => setShowCalendar(!showCalendar)}
-        className="FaRegCalendarAlt"
-      >
+      <button onClick={() => setShowCalendar(!showCalendar)}>
         <FaRegCalendarAlt />
       </button>
       {showCalendar && (
@@ -88,7 +111,10 @@ const Task = ({
       <Modal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
-        onConfirm={handleDelete}
+        onConfirm={() => {
+          deleteTask(task.ID);
+          setShowModal(false);
+        }}
         message="¿Estás seguro de que deseas eliminar esta tarea?"
       />
     </div>
@@ -96,19 +122,17 @@ const Task = ({
 };
 
 const CalendarPopup = ({ onChange, selectedDate, minDate }) => {
-  const tileClassName = ({ date }) => {
-    return date.toDateString() === selectedDate.toDateString()
-      ? "selected-day"
-      : null;
-  };
-
   return (
     <div className="calendar-popup">
       <Calendar
         onChange={onChange}
         value={selectedDate}
         minDate={minDate}
-        tileClassName={tileClassName}
+        tileClassName={({ date }) =>
+          date.toDateString() === selectedDate.toDateString()
+            ? "selected-day"
+            : null
+        }
       />
     </div>
   );

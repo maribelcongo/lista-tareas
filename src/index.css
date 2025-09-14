@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Aladin&family=Barriecito&display=swap");
-
+:root {
+  --color-principal: #f5cbb6;
+  --color-secundario: #fff0e5;
+  --color-acento: #f1a271;
+  --color-texto: #211309;
+  --color-fondo: #ad6a51;
+  --color-hover: #ff89cf;
+}
 * {
   margin: 0;
   padding: 0;
@@ -180,7 +187,7 @@ button {
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   padding: 10px;
-  width: 250px;
+
   margin: 15px;
 }
 .footer {

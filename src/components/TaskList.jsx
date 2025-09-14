@@ -6,14 +6,15 @@ import Filters from "./Filters";
 const TaskList = () => {
   const [tasks, setTasks] = useState(() => {
     const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-
     return savedTasks.map((task) => ({
       ...task,
       dueDate: task.dueDate ? new Date(task.dueDate) : null,
     }));
   });
+
   const [filter, setFilter] = useState("all");
 
+  // Guardar tareas en localStorage
   useEffect(() => {
     const tasksToStore = tasks.map((task) => ({
       ...task,
@@ -34,7 +35,7 @@ const TaskList = () => {
       description,
       ID: Date.now().toString(),
       completed: false,
-      dueDate: dueDate instanceof Date ? dueDate : new Date(), // Asegurarse de que dueDate sea un Date
+      dueDate: dueDate instanceof Date ? dueDate : new Date(),
     };
     setTasks([...tasks, newTask]);
   };
@@ -50,7 +51,7 @@ const TaskList = () => {
   const editTask = (id, newDescription) => {
     if (newDescription.trim() === "") {
       alert("La descripción no puede estar vacía");
-      return; // No editar la tarea si la nueva descripción está vacía
+      return;
     }
     setTasks(
       tasks.map((task) =>
@@ -63,17 +64,32 @@ const TaskList = () => {
     setTasks(tasks.filter((task) => task.ID !== id));
   };
 
-  const filteredTasks = tasks.filter((task) => {
-    if (filter === "completed") return task.completed;
-    if (filter === "pending") return !task.completed;
-    return true;
-  });
+  const updateTaskDate = (id, newDate) => {
+    setTasks(
+      tasks.map((task) =>
+        task.ID === id ? { ...task, dueDate: newDate } : task
+      )
+    );
+  };
+
+  // Filtrar y ordenar tareas
+  const filteredTasks = tasks
+    .filter((task) => {
+      if (filter === "completed") return task.completed;
+      if (filter === "pending") return !task.completed;
+      return true;
+    })
+    .sort((a, b) => {
+      if (!a.dueDate) return 1;
+      if (!b.dueDate) return -1;
+      return a.dueDate - b.dueDate;
+    });
 
   return (
-    <div>
+    <div className="task-list-container">
       <TaskForm addTask={addTask} />
       <Filters setFilter={setFilter} />
-      <div className="task_list_containere">
+      <div className="task-list">
         {filteredTasks.map((task) => (
           <Task
             key={task.ID}
@@ -81,6 +97,7 @@ const TaskList = () => {
             toggleComplete={toggleComplete}
             editTask={editTask}
             deleteTask={deleteTask}
+            updateTaskDate={updateTaskDate}
           />
         ))}
       </div>
