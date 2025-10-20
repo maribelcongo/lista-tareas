@@ -4,7 +4,7 @@ import { FaEdit, FaTrash, FaCheck, FaRegCalendarAlt } from "react-icons/fa";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import Modal from "./Modal";
-
+import "./task.css";
 const Task = ({
   task,
   toggleComplete,

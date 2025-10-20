@@ -1,0 +1,61 @@
+/* Filters.css */
+
+/* Contenedor de los filtros */
+.allFilters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 1em 0;
+  flex-wrap: wrap;
+}
+
+/* Botones principales */
+.allFilters .all,
+.allFilters .pending,
+.allFilters .completed {
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Combo", system-ui;
+  text-transform: none; /* Para mantener texto tal cual */
+}
+
+/* Estilos específicos según tipo de botón */
+.allFilters .all {
+  background-color: #e7a8c2; /* rosa suave */
+  color: #fff;
+  border: none;
+}
+
+.allFilters .pending {
+  background-color: #f6ece2; /* beige */
+  color: #5c3a3a; /* marrón oscuro */
+  border: 1px solid #d9b8a7; /* marrón claro */
+}
+
+.allFilters .completed {
+  background-color: #d9b8a7; /* marrón claro */
+  color: #5c3a3a;
+  border: 1px solid #5c3a3a; /* marrón oscuro */
+}
+
+/* Hover para todos los botones */
+.allFilters button:hover {
+  background-color: #d87cae; /* rosa más intenso */
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .allFilters {
+    gap: 8px;
+  }
+
+  .allFilters button {
+    padding: 8px 12px;
+    font-size: 0.9em;
+  }
+}

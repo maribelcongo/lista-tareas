@@ -1,0 +1,78 @@
+/* TaskList.css */
+
+/* Contenedor principal */
+.task-list-container {
+  width: 90%;
+  max-width: 900px;
+  margin: 2em auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+/* Lista de tareas */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+/* Cada tarea */
+.task {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d9b8a7; /* marrón claro */
+  background: #fff0f5; /* rosa muy suave */
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, background 0.3s;
+}
+
+.task.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+  background: #f6ece2; /* beige suave */
+}
+
+.task.today {
+  border: 2px solid #e7a8c2; /* rosa más intenso */
+}
+
+/* Texto de la tarea */
+.task span {
+  flex-grow: 1;
+  margin-left: 10px;
+  font-size: 1.2em;
+  color: #5c3a3a; /* marrón oscuro */
+}
+
+/* Botones de acción dentro de cada tarea */
+.task .buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.task button {
+  border: none;
+  cursor: pointer;
+  background: none;
+  color: #5c3a3a;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.task button:hover {
+  color: #e7a8c2;
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .task-list-container {
+    width: 95%;
+  }
+
+  .task span {
+    font-size: 1em;
+  }
+}

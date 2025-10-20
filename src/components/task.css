@@ -1,0 +1,136 @@
+/* Task.css */
+
+/* Contenedor de cada tarea */
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: #fff0f5; /* rosa suave */
+  border: 1px solid #d9b8a7; /* marrón claro */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+  transition: background 0.3s, transform 0.2s;
+  position: relative;
+}
+
+/* Estados de la tarea según fecha */
+.task.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+  background: #f6ece2; /* beige suave */
+}
+
+.task.due-today {
+  border: 2px solid #e7a8c2; /* rosa intenso */
+}
+
+.task.due-soon {
+  border: 2px dashed #d87cae; /* rosa medio */
+}
+
+.task.due-later {
+  border: 1px solid #d9b8a7; /* marrón claro */
+}
+
+/* Checkbox */
+.task input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Descripción */
+.task span {
+  flex-grow: 1;
+  font-size: 1.1em;
+  color: #5c3a3a;
+  margin-right: 10px;
+}
+
+/* Fecha de vencimiento */
+.task .due-date {
+  font-size: 0.9em;
+  color: #5c3a3a;
+  margin-right: 10px;
+}
+
+/* Botones con iconos */
+.task button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #5c3a3a;
+  font-size: 1.2em;
+  margin-left: 5px;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.task button:hover {
+  color: #e7a8c2;
+  transform: scale(1.1);
+}
+
+/* Inputs para editar tarea */
+.task input[type="text"] {
+  flex-grow: 1;
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: 1px solid #e7a8c2;
+  background-color: #fff0f5;
+  color: #5c3a3a;
+  font-size: 1em;
+  margin-right: 5px;
+  outline: none;
+}
+
+.task input[type="text"]:focus {
+  border-color: #d87cae;
+  box-shadow: 0 0 5px rgba(231, 168, 194, 0.5);
+}
+
+/* Popup del calendario */
+.calendar-popup {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  z-index: 1000;
+  background-color: #f6ece2;
+  border: 1px solid #d9b8a7;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Día seleccionado en calendario */
+.selected-day {
+  background-color: #e7a8c2 !important;
+  color: #f6ece2 !important;
+  border-radius: 50%;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .task {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .task span,
+  .task .due-date {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  .task button {
+    margin-left: 0;
+    margin-right: 5px;
+  }
+
+  .calendar-popup {
+    left: auto;
+    right: 0;
+  }
+}

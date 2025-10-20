@@ -7,7 +7,7 @@ const App = () => {
     <>
       <div className="container">
         <CambiarFondo />
-        <h1>Lista de Tareas</h1>
+        <h1>daily planner </h1>
 
         <TaskList />
       </div>

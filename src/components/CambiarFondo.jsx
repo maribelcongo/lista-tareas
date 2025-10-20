@@ -2,20 +2,12 @@ import { useState } from "react";
 import { LuPalette } from "react-icons/lu";
 
 import fondo1 from "../assets/fondo oscuro.jpg";
-import fondo2 from "../assets/PINK.jpeg";
-import fondo3 from "../assets/margaritas.jpeg";
-// import fondo4 from "../assets/fondo_planetas.jpeg";
 
 const CambiadorFondo = () => {
   const [index, setIndex] = useState(0);
 
   // Array de imágenes
-  const imagenes = [
-    `url(${fondo1})`,
-    `url(${fondo2})`,
-    `url(${fondo3})`,
-    // `url(${fondo4})`,
-  ];
+  const imagenes = [`url(${fondo1})`];
 
   const cambiarFondo = () => {
     const newIndex = (index + 1) % imagenes.length;

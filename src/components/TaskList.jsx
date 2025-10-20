@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Task from "./Task";
 import TaskForm from "./TaskForm";
 import Filters from "./Filters";
-
+import "./tasklist.css";
 const TaskList = () => {
   const [tasks, setTasks] = useState(() => {
     const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];

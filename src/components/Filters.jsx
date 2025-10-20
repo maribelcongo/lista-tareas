@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import Button from "@mui/material/Button"; 
-
+import Button from "@mui/material/Button";
+import "./filters.css";
 const Filters = ({ setFilter }) => {
   return (
     <div className="allFilters">

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Box, Button, Typography } from "@mui/material";
-
+import "./modal.css";
 const Modal = ({ isOpen, onClose, onConfirm, message }) => {
   if (!isOpen) return null;
 
