@@ -1,12 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Aladin&family=Barriecito&display=swap");
-:root {
-  --color-principal: #f5cbb6;
-  --color-secundario: #fff0e5;
-  --color-acento: #f1a271;
-  --color-texto: #211309;
-  --color-fondo: #ad6a51;
-  --color-hover: #ff89cf;
-}
+@import url("https://fonts.googleapis.com/css2?family=Combo&family=Fontdiner+Swanky&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -36,14 +29,14 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  font-family: "Aladin", system-ui;
+  font-family: "Combo", system-ui;
   font-weight: 400;
   font-style: normal;
 }
 h1 {
   color: #7209b7;
   text-align: center;
-  font-family: "Barriecito", system-ui;
+  font-family: "Fontdiner Swanky", serif;
   font-size: 3em;
 }
 form {

@@ -13,7 +13,7 @@ const Footer = () => {
       </Typography>
       <Box className="icon-container">
         <IconButton
-          href="https://www.linkedin.com/in/maribel-congo-379727268/"
+          href="https://www.linkedin.com/in/maribel-congo/"
           target="_blank"
           rel="noopener noreferrer"
         >
