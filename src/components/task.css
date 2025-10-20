@@ -134,3 +134,38 @@
     right: 0;
   }
 }
+.notes-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.notes-container textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #e7a8c2;
+  background-color: #fff0f5;
+  color: #5c3a3a;
+  resize: vertical;
+  font-family: "Combo", system-ui;
+}
+
+.save-notes-btn {
+  align-self: flex-end;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #e7a8c2;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.save-notes-btn:hover {
+  background-color: #d87cae;
+  transform: scale(1.05);
+}

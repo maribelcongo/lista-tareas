@@ -1,16 +1,24 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { FaEdit, FaTrash, FaCheck, FaRegCalendarAlt } from "react-icons/fa";
+import {
+  FaEdit,
+  FaTrash,
+  FaCheck,
+  FaRegCalendarAlt,
+  FaStickyNote,
+} from "react-icons/fa";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import Modal from "./Modal";
 import "./task.css";
+
 const Task = ({
   task,
   toggleComplete,
   editTask,
   deleteTask,
   updateTaskDate,
+  updateNotes, // nueva función para guardar notas
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newDescription, setNewDescription] = useState(task.description);
@@ -18,6 +26,8 @@ const Task = ({
   const [selectedDate, setSelectedDate] = useState(task.dueDate || new Date());
   const [showModal, setShowModal] = useState(false);
   const [dueClass, setDueClass] = useState("");
+  const [showNotes, setShowNotes] = useState(false); // mostrar textarea
+  const [notes, setNotes] = useState(task.notes || ""); // contenido de notas
 
   // Determinar clase según fecha
   useEffect(() => {
@@ -61,6 +71,11 @@ const Task = ({
     }
   };
 
+  const handleSaveNotes = () => {
+    updateNotes(task.ID, notes);
+    setShowNotes(false);
+  };
+
   return (
     <div className={`task ${dueClass}`}>
       <input
@@ -101,6 +116,10 @@ const Task = ({
       <button onClick={() => setShowCalendar(!showCalendar)}>
         <FaRegCalendarAlt />
       </button>
+      <button onClick={() => setShowNotes(!showNotes)}>
+        <FaStickyNote />
+      </button>
+
       {showCalendar && (
         <CalendarPopup
           onChange={handleDateChange}
@@ -108,6 +127,20 @@ const Task = ({
           minDate={new Date()}
         />
       )}
+
+      {showNotes && (
+        <div className="notes-container">
+          <textarea
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+            placeholder="Escribe tus ideas..."
+          />
+          <button onClick={handleSaveNotes} className="save-notes-btn">
+            Guardar
+          </button>
+        </div>
+      )}
+
       <Modal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
@@ -150,11 +183,13 @@ Task.propTypes = {
     description: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired,
     dueDate: PropTypes.instanceOf(Date),
+    notes: PropTypes.string,
   }).isRequired,
   toggleComplete: PropTypes.func.isRequired,
   editTask: PropTypes.func.isRequired,
   deleteTask: PropTypes.func.isRequired,
   updateTaskDate: PropTypes.func.isRequired,
+  updateNotes: PropTypes.func.isRequired,
 };
 
 export default Task;

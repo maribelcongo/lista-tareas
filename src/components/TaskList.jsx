@@ -3,12 +3,14 @@ import Task from "./Task";
 import TaskForm from "./TaskForm";
 import Filters from "./Filters";
 import "./tasklist.css";
+
 const TaskList = () => {
   const [tasks, setTasks] = useState(() => {
     const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
     return savedTasks.map((task) => ({
       ...task,
       dueDate: task.dueDate ? new Date(task.dueDate) : null,
+      notes: task.notes || "", // agregar notas al cargar
     }));
   });
 
@@ -22,6 +24,7 @@ const TaskList = () => {
         task.dueDate instanceof Date
           ? task.dueDate.toISOString()
           : task.dueDate,
+      notes: task.notes || "",
     }));
     localStorage.setItem("tasks", JSON.stringify(tasksToStore));
   }, [tasks]);
@@ -36,6 +39,7 @@ const TaskList = () => {
       ID: Date.now().toString(),
       completed: false,
       dueDate: dueDate instanceof Date ? dueDate : new Date(),
+      notes: "", // inicializar notas vacías
     };
     setTasks([...tasks, newTask]);
   };
@@ -72,6 +76,14 @@ const TaskList = () => {
     );
   };
 
+  const updateNotes = (id, newNotes) => {
+    setTasks(
+      tasks.map((task) =>
+        task.ID === id ? { ...task, notes: newNotes } : task
+      )
+    );
+  };
+
   // Filtrar y ordenar tareas
   const filteredTasks = tasks
     .filter((task) => {
@@ -98,6 +110,7 @@ const TaskList = () => {
             editTask={editTask}
             deleteTask={deleteTask}
             updateTaskDate={updateTaskDate}
+            updateNotes={updateNotes} // pasar función a cada Task
           />
         ))}
       </div>
