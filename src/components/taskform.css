@@ -1,13 +1,10 @@
-/* TaskForm.css */
-
-/* Contenedor del formulario */
 .task-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1em;
   gap: 1em;
-  background-color: #f6ece2; /* Beige suave */
+  background-color: #f6ece2;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 90%;
@@ -20,9 +17,9 @@
   width: 75%;
   padding: 0.8em 1em;
   border-radius: 8px;
-  border: 1px solid #e7a8c2; /* Rosa suave */
-  background-color: #fff0f5; /* Rosa muy suave */
-  color: #5c3a3a; /* Marrón oscuro */
+  border: 1px solid #e7a8c2;
+  background-color: #fff0f5;
+  color: #5c3a3a;
   font-size: 1em;
   outline: none;
   transition: border-color 0.3s, box-shadow 0.3s;
@@ -33,9 +30,9 @@
   max-width: 150px;
   padding: 0.8em 1em;
   border-radius: 8px;
-  border: 1px solid #e7a8c2; /* Rosa suave */
-  background-color: #fff0f5; /* Rosa muy suave */
-  color: #5c3a3a; /* Marrón oscuro */
+  border: 1px solid #e7a8c2;
+  background-color: #fff0f5;
+  color: #5c3a3a;
   font-size: 1em;
   outline: none;
   transition: border-color 0.3s, box-shadow 0.3s;
@@ -43,13 +40,13 @@
 
 .task-form input[type="text"]:focus,
 .task-form input[type="date"]:focus {
-  border-color: #d87cae; /* Rosa más intenso */
+  border-color: #d87cae;
   box-shadow: 0 0 5px rgba(231, 168, 194, 0.5);
 }
 
 /* Mensajes de error */
 .task-form span {
-  color: #e10f34; /* rojo suave para alertas */
+  color: #e10f34;
   font-size: 0.9em;
   text-align: center;
 }
@@ -57,7 +54,7 @@
 /* Botón agregar tarea */
 .add-task-btn {
   padding: 10px 20px;
-  background-color: #e7a8c2; /* Rosa suave */
+  background-color: #e7a8c2;
   color: #fff;
   font-weight: 700;
   border: none;
@@ -67,7 +64,7 @@
 }
 
 .add-task-btn:hover {
-  background-color: #d87cae; /* Rosa intenso */
+  background-color: #d87cae;
   transform: scale(1.05);
 }
 

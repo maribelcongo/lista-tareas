@@ -1,36 +1,32 @@
-/* Task.css */
-
-/* Contenedor de cada tarea */
 .task {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 15px;
   border-radius: 10px;
-  background-color: #fff0f5; /* rosa suave */
-  border: 1px solid #d9b8a7; /* marrón claro */
+  background-color: #fff0f5;
+  border: 1px solid #d9b8a7;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
   transition: background 0.3s, transform 0.2s;
   position: relative;
 }
 
-/* Estados de la tarea según fecha */
 .task.completed {
   text-decoration: line-through;
   opacity: 0.6;
-  background: #f6ece2; /* beige suave */
+  background: #f6ece2;
 }
 
 .task.due-today {
-  border: 2px solid #e7a8c2; /* rosa intenso */
+  border: 2px solid #e7a8c2;
 }
 
 .task.due-soon {
-  border: 2px dashed #d87cae; /* rosa medio */
+  border: 2px dashed #d87cae;
 }
 
 .task.due-later {
-  border: 1px solid #d9b8a7; /* marrón claro */
+  border: 1px solid #d9b8a7;
 }
 
 /* Checkbox */
@@ -41,7 +37,6 @@
   cursor: pointer;
 }
 
-/* Descripción */
 .task span {
   flex-grow: 1;
   font-size: 1.1em;
@@ -49,14 +44,12 @@
   margin-right: 10px;
 }
 
-/* Fecha de vencimiento */
 .task .due-date {
   font-size: 0.9em;
-  color: #5c3a3a;
+  color: #2f2020;
   margin-right: 10px;
 }
 
-/* Botones con iconos */
 .task button {
   background: none;
   border: none;
@@ -113,7 +106,7 @@
 /* Responsive */
 @media screen and (max-width: 600px) {
   .task {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     padding: 10px;
   }
